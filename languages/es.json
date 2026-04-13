@@ -40,7 +40,9 @@
         "title-proyecto2": "Portafolio",
         "info-proyecto2": "Mi portafolio web personal, donde se encuentran algunos de mis proyectos más destacados, mis habilidades técnicas y un poco sobre mi formación.",
         "title-proyecto3": "Encriptador de Texto",
-        "info-proyecto3": "Un ecriptador donde el usuario puede escribir un texto y el encriptador lo codifica con llaves ya programadas. El encriptador también permite desencriptar el texto."
+        "info-proyecto3": "Un ecriptador donde el usuario puede escribir un texto y el encriptador lo codifica con llaves ya programadas. El encriptador también permite desencriptar el texto.",
+        "title-proyecto4": "Pastillas Track App",
+        "info-proyecto4": "App móvil con React Native y Expo para registrar medicamentos, marcar tomas y recibir recordatorios diarios con notificaciones locales. Incluye persistencia con AsyncStorage y estado global con Context API."
     },
 
     "contacto": {

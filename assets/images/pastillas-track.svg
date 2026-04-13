@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Pastillas Track App">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#2d2a26"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <rect x="280" y="120" width="240" height="240" rx="36" fill="#3d3834" stroke="#b08968" stroke-width="3"/>
+  <rect x="340" y="200" width="120" height="48" rx="24" fill="#b08968" opacity="0.9"/>
+  <rect x="360" y="268" width="80" height="36" rx="18" fill="#6b9b7a" opacity="0.85"/>
+  <text x="400" y="395" text-anchor="middle" fill="#e8e6e3" font-family="system-ui,Segoe UI,sans-serif" font-size="28" font-weight="600">Pastillas Track</text>
+  <text x="400" y="428" text-anchor="middle" fill="#9a9590" font-family="system-ui,Segoe UI,sans-serif" font-size="16">React Native · Expo</text>
+</svg>

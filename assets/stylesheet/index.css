@@ -623,6 +623,10 @@ img.logo-sena {
   border: 1px solid var(--eerie-black);
 }
 
+.card_pastillas-track {
+  margin-bottom: 4rem;
+}
+
 .container_imgCard--proyectos {
   margin-bottom: 1rem;
   border-radius: 20px 20px 0 0;

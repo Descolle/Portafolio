@@ -40,7 +40,9 @@
         "title-proyecto2": "Portfolio",
         "info-proyecto2": "My personal web portfolio, where you can find some of my most outstanding projects, my technical skills and a bit about my background.",
         "title-proyecto3": "Text Encryptor",
-        "info-proyecto3": "An encryptor where the user can type a text and the encryptor encrypts it with pre-programmed keys. The encryptor can also decrypt the text."
+        "info-proyecto3": "An encryptor where the user can type a text and the encryptor encrypts it with pre-programmed keys. The encryptor can also decrypt the text.",
+        "title-proyecto4": "Pastillas Track App",
+        "info-proyecto4": "Mobile app built with React Native and Expo to log medications, mark doses as taken, and get daily local notifications. Uses AsyncStorage for persistence and Context API for global state."
     },
 
     "contacto": {
