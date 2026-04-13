@@ -294,8 +294,17 @@ div.btn {
 }
 
 .cards_container--proyectos {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.proyectos__row {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .cards--proyectos {
