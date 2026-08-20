@@ -1,9 +1,20 @@
 const btn = document.getElementById('button');
 const sectionAll = document.querySelectorAll('section[id]');
-const inputName = document.querySelector('#nombre');
-const inputEmail = document.querySelector('#email');
 const flagsElement = document.getElementById('flags');
 const textsToChange = document.querySelectorAll('[data-section]');
+
+/**
+ * Correo del formulario de contacto (Web3Forms, gratis):
+ * 1. Entra en https://web3forms.com y genera un Access Key con tu email.
+ * 2. Pega la clave abajo. Los envíos llegan a ese correo.
+ * Si el sitio está solo en Netlify, puedes usar Netlify Forms en su lugar
+ * (atributo netlify en el form + notificaciones en el panel).
+ */
+const WEB3FORMS_ACCESS_KEY = '';
+
+window.__portfolioLang = 'es';
+
+let i18nBundle = {};
 
 /* ===== Loader =====*/
 window.addEventListener('load', () => {
@@ -36,8 +47,10 @@ btn.addEventListener('click', function() {
 
 /*===== Cambio de idioma =====*/
 const changeLanguage = async language => {
+    window.__portfolioLang = language;
     const requestJson = await fetch(`./languages/${language}.json`);
     const texts = await requestJson.json();
+    i18nBundle = texts;
 
     for(const textToChange of textsToChange) {
         const section = textToChange.dataset.section;
@@ -45,6 +58,86 @@ const changeLanguage = async language => {
 
         textToChange.innerHTML = texts[section][value];
     }
+}
+
+function contactFormMessage(key) {
+    const c = i18nBundle.contacto;
+    if (c && c[key]) return c[key];
+    const fallback = {
+        'form-ok': 'Mensaje enviado. Te responderé lo antes posible.',
+        'form-error': 'No se pudo enviar. Intenta de nuevo o escríbeme por LinkedIn.',
+        'form-config': 'Configura WEB3FORMS_ACCESS_KEY en script.js (web3forms.com).'
+    };
+    return fallback[key] || '';
+}
+
+/*===== Formulario de contacto → email (Web3Forms) =====*/
+const contactForm = document.getElementById('form');
+const formStatusEl = document.getElementById('form-status');
+
+function setFormStatus(message, type) {
+    if (!formStatusEl) return;
+    formStatusEl.hidden = !message;
+    formStatusEl.textContent = message || '';
+    formStatusEl.classList.remove('is-ok', 'is-error');
+    if (type === 'ok') formStatusEl.classList.add('is-ok');
+    if (type === 'error') formStatusEl.classList.add('is-error');
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setFormStatus('', null);
+
+        if (!WEB3FORMS_ACCESS_KEY) {
+            setFormStatus(contactFormMessage('form-config'), 'error');
+            return;
+        }
+
+        const submitBtn = contactForm.querySelector('#btn-enviar');
+        const affair = contactForm.querySelector('#asunto')?.value?.trim() || '';
+        const payload = {
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name: contactForm.querySelector('#nombre')?.value?.trim() || '',
+            email: contactForm.querySelector('#email')?.value?.trim() || '',
+            subject: `[Portafolio] ${affair}`,
+            message: contactForm.querySelector('#mensaje')?.value?.trim() || ''
+        };
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+        }
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json().catch(() => ({}));
+
+            if (data.success) {
+                setFormStatus(contactFormMessage('form-ok'), 'ok');
+                contactForm.reset();
+            } else {
+                setFormStatus(
+                    data.message || contactFormMessage('form-error'),
+                    'error'
+                );
+            }
+        } catch {
+            setFormStatus(contactFormMessage('form-error'), 'error');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '';
+            }
+        }
+    });
 }
 
 flagsElement.addEventListener('click', (e) => {

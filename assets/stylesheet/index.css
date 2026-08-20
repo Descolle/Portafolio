@@ -768,6 +768,29 @@ img.logo-sena {
   line-height: 2.3rem;
 }
 
+.form-contact__status {
+  font-family: "Cooper Hewitt";
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.form-contact__status.is-ok {
+  color: #c5e8c8;
+  background: rgba(80, 120, 80, 0.25);
+  border: 1px solid rgba(140, 190, 140, 0.45);
+}
+
+.form-contact__status.is-error {
+  color: #f0c4c4;
+  background: rgba(120, 60, 60, 0.25);
+  border: 1px solid rgba(200, 120, 120, 0.45);
+}
+
 .form-contact input {
   font-family: "Cooper Hewitt";
   background: transparent;

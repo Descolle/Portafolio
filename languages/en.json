@@ -48,6 +48,9 @@
     "contacto": {
         "title": "Contact",
         "text": "Complete the form below and I will contact you as soon as possible.",
-        "btn-enviar": "Send"
+        "btn-enviar": "Send",
+        "form-ok": "Message sent. I will get back to you soon.",
+        "form-error": "Could not send. Please try again or reach out on LinkedIn.",
+        "form-config": "Missing send key: open script.js and paste your access key from web3forms.com (see comment in that file)."
     }
 }

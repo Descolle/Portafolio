@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portafolio | Tomás Corvalán Desarrolladora Web"
+      content="Tomás Corvalán — Desarrollador Full-Stack (React, React Native, Node.js, Supabase). Portafolio con proyectos, experiencia freelance y certificaciones."
     />
     <meta name="robots" content="index,follow" />
 
-    <title>Tomás Corvalán | Desarrollador Web Full-Stack</title>
+    <title>Tomás Corvalán | Desarrollador Full-Stack (React · React Native · Node.js)</title>
+
+    <!-- Open Graph / vista previa al compartir el link (LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tomás Corvalán | Desarrollador Full-Stack" />
+    <meta
+      property="og:description"
+      content="Desarrollador Full-Stack con experiencia freelance en apps móviles SaaS. Stack: React, React Native, Node.js, TypeScript, Supabase, Stripe."
+    />
+    <!-- TODO: reemplazar por una imagen real de 1200x630px (captura del portafolio o logo) -->
+    <meta property="og:image" content="./assets/images/og-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Librerías -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -120,15 +131,17 @@
               data-section="home"
               data-value="home_text-3"
             >
-              Desarrollador web Full-Stack
+              Desarrollador Full-Stack
             </p>
           </div>
 
           <div class="container_parrafo-info">
             <p data-section="home" data-value="parrafo-info">
-              Estudiante de Programación con JavaScript Full-Stack. Como persona
-              amante a los diseños intuitivos y estéticamente agradables busco
-              crear proyectos que brinden la mejor experiencia para el usuario.
+              Desarrollador Full-Stack con experiencia construyendo aplicaciones
+              web y móviles de punta a punta: desde la interfaz hasta la base
+              de datos y los pagos. Trabajo con React, React Native, Node.js y
+              Supabase, y disfruto crear productos que resuelven un problema
+              real con una buena experiencia de usuario.
             </p>
           </div>
 
@@ -198,14 +211,19 @@
               class="texto_sobreMi"
               data-section="sobre-mi"
               data-value="texto_sobreMi"
-              >Soy estudiante del curso de programación Full-Stack JavaScript
-              por parte de DESAFIO LATAM <br />Aspiro conseguir empleo en el
-              mundo del Desarrollo Web, adquirir experiencia, nuevos
-              conocimientos y fortalecer mi vida profesional.<br /><br />Soy una
-              persona empática y entusiasta, con competencias enfocadas en el
-              trabajo en equipo, comunicación asertiva, resolución de problemas,
-              responsable y proactiva, me gusta aprender de los demás y
-              superarme continuamente.</span
+              >Soy Desarrollador Full-Stack con cerca de 2 años construyendo
+              software, formado en el programa JavaScript Full-Stack de
+              Desafío Latam.<br /><br />
+              He trabajado como Full-Stack Freelancer en el desarrollo de una
+              app móvil SaaS de principio a fin —con autenticación,
+              suscripciones vía Stripe y sincronización en la nube— y como
+              desarrollador de mantenimiento en sitios web existentes. Tengo
+              certificación de inglés C1, lo que me permite trabajar cómodo en
+              equipos y documentación en inglés.<br /><br />
+              Soy una persona empática y proactiva, con foco en el trabajo en
+              equipo, la comunicación clara y la resolución de problemas. Me
+              gusta aprender tecnologías nuevas y aplicarlas en proyectos
+              reales.</span
             >
           </div>
 
@@ -308,6 +326,8 @@
             <img src="./assets/images/pd-admin-icon.png" alt="PgAdmin" />
             <p>SQL</p>
           </div>
+
+          <!-- TODO: agregar un ícono para React Native (data-aos-duration 500) y otro para Supabase (700) si tienes los assets -->
         </div>
       </section>
 
@@ -404,6 +424,47 @@
               </p>
             </div>
           </div>
+
+          <!-- Nuevo: certificación de inglés C1 -->
+          <!-- TODO: reemplazar el src por el logo/insignia real de la certificación -->
+          <div
+            class="cards--formacion"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <a>
+              <img
+                class="logo-unal"
+                src="./assets/images/certif-ingles.png"
+                alt="Certificación de Inglés C1"
+              />
+            </a>
+            <div class="container_texto--formacion">
+              <p>Inglés C1</p>
+              <p>2025</p>
+            </div>
+          </div>
+
+          <!-- Nuevo: credencial de formación en IA -->
+          <!-- TODO: reemplazar el src por el logo/insignia real de la certificación -->
+          <div
+            class="cards--formacion"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+          >
+            <a>
+              <img
+                class="logo-unal"
+                src="./assets/images/certif-ia.png"
+                alt="Certificación en Inteligencia Artificial"
+              />
+            </a>
+            <div class="container_texto--formacion">
+              <p>Formación en Inteligencia Artificial</p>
+              <p>2025</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -426,6 +487,37 @@
 
         <div class="cards_container--proyectos">
           <div class="proyectos__row proyectos__row--top">
+
+          <!-- Nuevo: proyecto destacado — Recuerda Med -->
+          <!-- TODO: reemplazar la imagen por una captura real de la app y completar el link de DEMO (store/video) -->
+          <div
+            class="cards--proyectos card_recuerdaMed"
+            data-aos="zoom-in-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            <div class="container_imgCard--proyectos">
+              <img
+                src="./assets/images/pastillas-track.svg"
+                alt="Proyecto: Recuerda Med"
+              />
+            </div>
+
+            <div class="container_textCard--proyectos">
+              <h2>Recuerda Med</h2>
+              <p>
+                App móvil SaaS de gestión de medicamentos, desarrollada como
+                Full-Stack Freelancer. Arquitectura offline-first con
+                sincronización en Supabase, autenticación multitenant con
+                Row Level Security, y suscripciones pagas integradas con
+                Stripe. Publicada en Google Play mediante EAS Build.
+              </p>
+            </div>
+
+            <div class="container_btn--proyectos">
+              <p class="proyecto_nota">Proyecto freelance para cliente — código privado</p>
+            </div>
+          </div>
+
           <div
             class="cards--proyectos card_JuegoAhorcado"
             data-aos="zoom-in-up"
@@ -517,7 +609,9 @@
               </a>
             </div>
           </div>
+          </div>
 
+          <div class="proyectos__row proyectos__row--bottom">
           <div
             class="cards--proyectos card_encriptador"
             data-aos="zoom-in-up"
@@ -566,10 +660,7 @@
               </a>
             </div>
           </div>
-          </div>
 
-          <div class="proyectos__row proyectos__row--bottom">
-          <!--Acá parte la ventana nueva-->
           <div
             class="cards--proyectos card_encriptador"
             data-aos="zoom-in-up"
@@ -620,58 +711,6 @@
             </div>
           </div>
 
-          <div
-            class="cards--proyectos card_pastillas-track"
-            data-aos="zoom-in-up"
-            data-aos-anchor-placement="center-bottom"
-          >
-            <div class="container_imgCard--proyectos">
-              <img
-                src="./assets/images/pastillas-track.svg"
-                alt="Pastillas Track App — app de seguimiento de medicación"
-              />
-            </div>
-
-            <div class="container_textCard--proyectos">
-              <h2 data-section="proyectos" data-value="title-proyecto4">
-                Pastillas Track App
-              </h2>
-              <p data-section="proyectos" data-value="info-proyecto4">
-                App móvil con React Native y Expo para registrar medicamentos,
-                marcar tomas y recibir recordatorios diarios con notificaciones
-                locales. Incluye persistencia con AsyncStorage y estado global
-                con Context API.
-              </p>
-            </div>
-
-            <div class="container_btn--proyectos">
-              <a
-                href="https://github.com/Descolle/Pastillas-Track-App/blob/main/README.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button class="btn_demo" type="button">
-                  <img
-                    src="./assets/images/icon-demoProyecto.png"
-                    alt="Demostración"
-                  />DEMO
-                </button>
-              </a>
-
-              <a
-                href="https://github.com/Descolle/Pastillas-Track-App"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button class="btn_repo" type="button">
-                  <img
-                    src="./assets/images/icon-githubProyecto.png"
-                    alt="Repositorio de github"
-                  />REPO
-                </button>
-              </a>
-            </div>
-          </div>
           </div>
         </div>
       </section>
@@ -695,11 +734,19 @@
               </p>
             </div>
 
+            <p
+              id="form-status"
+              class="form-contact__status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+
             <form
               id="form"
               class="form-contact"
               name="contacto-portafolio"
-              netlify
+              novalidate
             >
               <input
                 id="nombre"

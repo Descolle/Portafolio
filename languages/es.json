@@ -48,6 +48,9 @@
     "contacto": {
         "title": "Contacto",
         "text": "Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.",
-        "btn-enviar": "Enviar"
+        "btn-enviar": "Enviar",
+        "form-ok": "Mensaje enviado. Te responderé lo antes posible.",
+        "form-error": "No se pudo enviar. Intenta de nuevo o escríbeme por LinkedIn.",
+        "form-config": "Falta la clave de envío: abre script.js y pega tu access key de web3forms.com (ver comentario en el archivo)."
     }
 }
