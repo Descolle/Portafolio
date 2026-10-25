@@ -1,32 +1,65 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#292929" />
     <meta
       name="description"
-      content="Tomás Corvalán — Desarrollador Full-Stack (React, React Native, Node.js, Supabase). Portafolio con proyectos, experiencia freelance y certificaciones."
+      content="Tomás Corvalán — Desarrollador Full Stack (React, React Native, TypeScript, Node.js, PostgreSQL, Supabase). Portafolio con proyectos, stack y contacto."
     />
     <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://portafolio-ten-alpha-63.vercel.app/" />
 
-    <title>
-      Tomás Corvalán | Desarrollador Full-Stack (React · React Native · Node.js)
-    </title>
+    <title>Tomás Corvalán | Desarrollador Full Stack (React · React Native · Node.js)</title>
 
     <!-- Open Graph / vista previa al compartir el link (LinkedIn, WhatsApp, etc.) -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Tomás Corvalán | Desarrollador Full-Stack"
-    />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://portafolio-ten-alpha-63.vercel.app/" />
+    <meta property="og:title" content="Tomás Corvalán | Desarrollador Full Stack" />
     <meta
       property="og:description"
-      content="Desarrollador Full-Stack con experiencia freelance en apps móviles SaaS. Stack: React, React Native, Node.js, TypeScript, Supabase, Stripe."
+      content="Desarrollador Full Stack: React, React Native, TypeScript, Node.js, PostgreSQL/Supabase y Stripe. Autor de una app móvil SaaS offline-first."
     />
-    <!-- TODO: reemplazar por una imagen real de 1200x630px (captura del portafolio o logo) -->
-    <meta property="og:image" content="./assets/images/og-preview.png" />
+    <meta
+      property="og:image"
+      content="https://portafolio-ten-alpha-63.vercel.app/assets/images/og-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://portafolio-ten-alpha-63.vercel.app/assets/images/og-preview.png"
+    />
+
+    <!-- Datos estructurados (SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tomás Corvalán",
+        "jobTitle": "Desarrollador Full Stack",
+        "url": "https://portafolio-ten-alpha-63.vercel.app/",
+        "email": "mailto:tomascorvalan14@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Valparaíso",
+          "addressCountry": "CL"
+        },
+        "sameAs": ["https://github.com/Descolle", "https://www.linkedin.com/in/tomas-c-0893b120b/"],
+        "knowsAbout": [
+          "React",
+          "React Native",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "Supabase",
+          "Stripe"
+        ]
+      }
+    </script>
 
     <!-- Librerías -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -48,105 +81,102 @@
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet" />
 
     <!-- Fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/ae0fd6f99f.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/ae0fd6f99f.js" crossorigin="anonymous"></script>
 
     <!-- Favicon -->
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
   </head>
 
   <body>
+    <a class="skip-link" href="#main" data-section="a11y" data-value="skip">Saltar al contenido</a>
+
     <div class="container--loader">
       <div class="loader"></div>
     </div>
 
     <header class="header">
-      <img
-        src="./assets/images/logo-ma.png"
-        alt="Logo Portafolio"
-        class="logo__header"
-      />
+      <img src="./assets/images/logo-ma.png" alt="Logo de Tomás Corvalán" class="logo__header" />
 
-      <nav class="nav_menu not-active">
-        <a href="#home" class="active">Home</a>
-        <a href="#sobreMi" data-section="menu" data-value="item2">Sobre mí</a>
-        <a href="#habilidades" data-section="menu" data-value="item3"
-          >Habilidades</a
-        >
-        <a href="#formacion" data-section="menu" data-value="item4"
-          >Certificados</a
-        >
-        <a href="#proyectos" data-section="menu" data-value="item5"
-          >Proyectos</a
-        >
-        <a href="#contacto" data-section="menu" data-value="item6">Contacto</a>
+      <nav class="nav_menu not-active" id="nav-menu" aria-label="Principal">
+        <a href="#home" class="active" data-section="menu" data-value="home">Inicio</a>
+        <a href="#sobreMi" data-section="menu" data-value="about">Sobre mí</a>
+        <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
+        <a href="#proyectos" data-section="menu" data-value="projects">Proyectos</a>
+        <a href="#formacion" data-section="menu" data-value="education">Formación</a>
+        <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
 
         <!-- Idiomas de la página -->
         <div id="flags" class="flags">
-          <div class="flags__item" data-language="es">
-            <img src="./assets/images/icon-spain.png" alt="Español/Spain" />
+          <div
+            class="flags__item"
+            data-language="es"
+            role="button"
+            tabindex="0"
+            aria-label="Español"
+          >
+            <img src="./assets/images/icon-spain.png" alt="" />
           </div>
-          <div class="flags__item" data-language="en">
-            <img src="./assets/images/icon-en.png" alt="Inglés/English" />
+          <div
+            class="flags__item"
+            data-language="en"
+            role="button"
+            tabindex="0"
+            aria-label="English"
+          >
+            <img src="./assets/images/icon-en.png" alt="" />
           </div>
         </div>
       </nav>
 
-      <div id="button" class="btn not-active">
+      <div
+        id="button"
+        class="btn not-active"
+        role="button"
+        tabindex="0"
+        aria-label="Abrir menú"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <!-- Home -->
       <section class="home" id="home">
         <picture class="container_image-home" data-aos="zoom-in">
           <img
             class="image_home"
             src="./assets/images/image-home2.webp"
-            alt="Ilustración mujer y plantas"
+            alt=""
+            width="600"
+            height="600"
           />
         </picture>
 
         <div class="home_info">
           <div class="container_text-info">
-            <p class="home_text-1" data-section="home" data-value="home_text-1">
-              Hola! Soy
-            </p>
-            <p class="home_text-2">Tomás Corvalán</p>
+            <p class="home_text-1" data-section="home" data-value="greeting">Hola! Soy</p>
+            <h1 class="home_text-2">Tomás Corvalán</h1>
           </div>
 
           <div>
-            <p
-              class="home_text-3 text-type"
-              data-section="home"
-              data-value="home_text-3"
-            >
-              Desarrollador Full-Stack
+            <p class="home_text-3 text-type" data-section="home" data-value="role">
+              Desarrollador Full Stack
             </p>
           </div>
 
           <div class="container_parrafo-info">
-            <p data-section="home" data-value="parrafo-info">
-              Desarrollador Full-Stack con experiencia construyendo aplicaciones
-              web y móviles de punta a punta: desde la interfaz hasta la base de
-              datos y los pagos. Trabajo con React, React Native, Node.js y
-              Supabase, y disfruto crear productos que resuelven un problema
-              real con una buena experiencia de usuario.
+            <p data-section="home" data-value="intro">
+              Desarrollo aplicaciones web y móviles de punta a punta: desde la interfaz hasta la
+              base de datos y los pagos. Trabajo con React, React Native, TypeScript, Node.js y
+              PostgreSQL/Supabase, y busco mi primer rol Junior Full Stack / Front End para crear
+              productos que resuelvan problemas reales.
             </p>
           </div>
 
@@ -154,23 +184,20 @@
             <a
               href="https://drive.google.com/file/d/1Dh89Cq4JttUhwNLgiIs3K2jS703l7JQE/view?usp=drive_link"
               target="_blank"
+              rel="noopener noreferrer"
+              class="cv_button"
+              data-section="home"
+              data-value="cv_button"
             >
-              <button
-                class="cv_button"
-                data-section="home"
-                data-value="cv_button"
-              >
-                Descargar CV
-              </button>
+              Descargar CV
             </a>
-            <a href="#contacto">
-              <button
-                class="contact_button"
-                data-section="home"
-                data-value="contact_button"
-              >
-                Contacto
-              </button>
+            <a
+              href="#contacto"
+              class="contact_button"
+              data-section="home"
+              data-value="contact_button"
+            >
+              Contacto
             </a>
           </div>
         </div>
@@ -179,64 +206,55 @@
           <a
             href="https://www.linkedin.com/in/tomas-c-0893b120b/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
-            <img
-              src="./assets/images/icon-linkedin.png"
-              alt="LinkedIn"
-              class="icon-linkedin"
-            />
+            <img src="./assets/images/icon-linkedin.png" alt="" class="icon-linkedin" />
           </a>
-          <a href="https://github.com/Descolle" target="_blank">
-            <img
-              src="./assets/images/icon-github.png"
-              alt="GitHub"
-              class="icon-github"
-            />
-          </a>
-          <a href="https://www.instagram.com/toma_scorvalan/" target="_blank">
-            <img
-              src="./assets/images/icon-instagram.png"
-              alt="Instagram"
-              class="icon-instagram"
-            />
+          <a
+            href="https://github.com/Descolle"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <img src="./assets/images/icon-github.png" alt="" class="icon-github" />
           </a>
         </div>
       </section>
 
       <!-- Sobre mí -->
       <section class="sobreMi" id="sobreMi">
-        <h1 data-section="sobre-mi" data-value="title" data-aos="fade-up">
-          Sobre mí
-        </h1>
+        <h2 data-section="about" data-value="title" data-aos="fade-up">Sobre mí</h2>
 
         <div class="container_content-sobreMi" data-aos="fade-right">
           <div class="container_texto-sobreMi">
             <span class="title_sobreMi">Tomás Corvalán</span>
-            <span
-              class="texto_sobreMi"
-              data-section="sobre-mi"
-              data-value="texto_sobreMi"
-              >Soy Desarrollador Full-Stack con cerca de 2 años construyendo
-              software, formado en el programa JavaScript Full-Stack de Desafío
-              Latam.<br /><br />
-              He trabajado como Full-Stack Freelancer en el desarrollo de una
-              app móvil SaaS de principio a fin —con autenticación,
-              suscripciones vía Stripe y sincronización en la nube— y como
-              desarrollador de mantenimiento en sitios web existentes. Tengo
-              certificación de inglés C1, lo que me permite trabajar cómodo en
-              equipos y documentación en inglés.<br /><br />
-              Soy una persona empática y proactiva, con foco en el trabajo en
-              equipo, la comunicación clara y la resolución de problemas. Me
-              gusta aprender tecnologías nuevas y aplicarlas en proyectos
-              reales.</span
-            >
+            <span class="texto_sobreMi" data-section="about" data-value="text">
+              Soy Desarrollador Full Stack, formado en el bootcamp de Desafío Latam (2024) y con
+              proyectos propios desde entonces. Vengo del área de la salud (Tecnología Médica), lo
+              que me da disciplina de proceso y criterio para productos como el que construí: una
+              app de gestión de medicamentos.
+              <br />
+              <br />
+              Como freelance desarrollé de principio a fin una app móvil SaaS con autenticación
+              multitenant, modo offline-first y suscripciones con Stripe. También he hecho
+              mantenimiento de sitios web existentes y tengo conocimientos básicos de WordPress y
+              Python. Mi inglés es C1, así que puedo trabajar con equipos y documentación en inglés.
+              <br />
+              <br />
+              Me gusta aprender con proyectos reales: hoy estoy profundizando en TypeScript y
+              Next.js.
+            </span>
           </div>
 
           <picture class="container_image-sobreMi">
             <img
               class="image_sobreMi"
               src="./assets/images/image-aboutme2.webp"
-              alt="Ilustración programador"
+              alt=""
+              width="600"
+              height="600"
+              loading="lazy"
             />
           </picture>
         </div>
@@ -244,473 +262,414 @@
 
       <!-- Habilidades -->
       <section class="habilidades" id="habilidades">
-        <h1 data-section="habilidades" data-value="title" data-aos="fade-up">
-          Habilidades
-        </h1>
+        <h2 data-section="skills" data-value="title" data-aos="fade-up">Habilidades</h2>
 
-        <img
-          src="./assets/images/puntos.png"
-          alt="Decoración puntos"
-          class="puntos1-habilidades"
-        />
-        <img
-          src="./assets/images/puntos.png"
-          alt="Decoración puntos"
-          class="puntos2-habilidades"
-        />
+        <img src="./assets/images/puntos.png" alt="" class="puntos1-habilidades" />
+        <img src="./assets/images/puntos.png" alt="" class="puntos2-habilidades" />
 
-        <div class="cards_container--habilidades">
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            <img src="./assets/images/icon-html.png" alt="HTML" />
+        <ul class="cards_container--habilidades">
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/icon-html.png" alt="" />
             <p>HTML 5</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="700"
-          >
-            <img src="./assets/images/icon-css.png" alt="CSS" />
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/icon-css.png" alt="" />
             <p>CSS 3</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="900"
-          >
-            <img src="./assets/images/icon-js.png" alt="JavaScript" />
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/icon-js.png" alt="" />
             <p>JavaScript</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="1100"
-          >
-            <img src="./assets/images/react-icon.png" alt="React" />
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/typescript.svg" alt="" />
+            <p>TypeScript</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/react-icon.png" alt="" />
             <p>React</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            <img src="./assets/images/node-icon.png" alt="Node" />
-            <p>Node</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="700"
-          >
-            <img src="./assets/images/icon-git.png" alt="Git" />
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/react-native.svg" alt="" />
+            <p>React Native</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/expo.svg" alt="" class="icon-invert" />
+            <p>Expo</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/nextjs.svg" alt="" class="icon-invert" />
+            <p>
+              Next.js
+              <small data-section="skills" data-value="learning">en formación</small>
+            </p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/node-icon.png" alt="" />
+            <p>Node.js</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/express.svg" alt="" class="icon-invert" />
+            <p>Express</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/postgresql.svg" alt="" />
+            <p>PostgreSQL</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/supabase.svg" alt="" />
+            <p>Supabase</p>
+          </li>
+          <li class="cards--habilidades cards--habilidades--text" data-aos="fade-up">
+            <span class="skill_glyph" aria-hidden="true">$</span>
+            <p>Stripe</p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/python.svg" alt="" />
+            <p>
+              Python
+              <small data-section="skills" data-value="basic">básico</small>
+            </p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/skills/wordpress.svg" alt="" />
+            <p>
+              WordPress
+              <small data-section="skills" data-value="basic">básico</small>
+            </p>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/icon-git.png" alt="" />
             <p>Git</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="900"
-          >
-            <img src="./assets/images/icon-github-hab.png" alt="GitHub" />
-            <p>Github</p>
-          </div>
-
-          <div
-            class="cards--habilidades"
-            data-aos="fade-up"
-            data-aos-duration="1100"
-          >
-            <img src="./assets/images/pd-admin-icon.png" alt="PgAdmin" />
-            <p>SQL</p>
-          </div>
-
-          <!-- TODO: agregar un ícono para React Native (data-aos-duration 500) y otro para Supabase (700) si tienes los assets -->
-        </div>
-      </section>
-
-      <!-- Formación -->
-      <section class="formacion" id="formacion">
-        <h1 data-section="formacion" data-value="title" data-aos="fade-up">
-          Certificados
-        </h1>
-
-        <div class="cards_container--formacion">
-          <div
-            class="cards--formacion"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/certif - react.png"
-                alt="Certificado - REACT"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p data-section="formacion" data-value="formacion3">
-                Desarrollador Front-End React
-              </p>
-              <p>2024</p>
-            </div>
-          </div>
-          <div
-            class="cards--formacion"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/Certif - CSS.png"
-                alt="Certificado - CSS"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p data-section="formacion" data-value="formacion2">
-                Certificado CSS
-              </p>
-              <p data-section="formacion" data-value="tiempo-formacion2">
-                2024
-              </p>
-            </div>
-          </div>
-          <div
-            class="cards--formacion"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/certif-node.png"
-                alt="Certificado - Node & Express"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p data-section="formacion" data-value="formacion1">
-                Backend con Node y Express
-              </p>
-              <p data-section="formacion" data-value="tiempo-formacion1">
-                2024
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="cards--formacion"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/certif-sql.png"
-                alt="Certificado - SQL"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p data-section="formacion" data-value="formacion1">
-                Standar Query Language (SQL)
-              </p>
-              <p data-section="formacion" data-value="tiempo-formacion1">
-                2025
-              </p>
-            </div>
-          </div>
-
-          <!-- Nuevo: certificación de inglés C1 -->
-          <!-- TODO: reemplazar el src por el logo/insignia real de la certificación -->
-          <div
-            class="cards--formacion"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/certif-ingles.png"
-                alt="Certificación de Inglés C1"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p>Inglés C1</p>
-              <p>2025</p>
-            </div>
-          </div>
-
-          <!-- Nuevo: credencial de formación en IA -->
-          <!-- TODO: reemplazar el src por el logo/insignia real de la certificación -->
-          <div
-            class="cards--formacion"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="500"
-          >
-            <a>
-              <img
-                class="logo-unal"
-                src="./assets/images/certif-ia.png"
-                alt="Certificación en Inteligencia Artificial"
-              />
-            </a>
-            <div class="container_texto--formacion">
-              <p>Formación en Inteligencia Artificial</p>
-              <p>2025</p>
-            </div>
-          </div>
-        </div>
+          </li>
+          <li class="cards--habilidades" data-aos="fade-up">
+            <img src="./assets/images/icon-github-hab.png" alt="" />
+            <p>GitHub</p>
+          </li>
+        </ul>
       </section>
 
       <!-- Proyectos -->
       <section class="proyectos" id="proyectos">
-        <h1 data-section="proyectos" data-value="title" data-aos="fade-up">
-          Proyectos
-        </h1>
+        <h2 data-section="projects" data-value="title" data-aos="fade-up">Proyectos</h2>
 
-        <img
-          src="./assets/images/puntos.png"
-          alt="Decoración puntos"
-          class="puntos1-proyectos"
-        />
-        <img
-          src="./assets/images/puntos.png"
-          alt="Decoración puntos"
-          class="puntos2-proyectos"
-        />
+        <img src="./assets/images/puntos.png" alt="" class="puntos1-proyectos" />
+        <img src="./assets/images/puntos.png" alt="" class="puntos2-proyectos" />
 
         <div class="cards_container--proyectos">
           <div class="proyectos__row proyectos__row--top">
-            <!-- Nuevo: proyecto destacado — Recuerda Med -->
-            <!-- TODO: reemplazar la imagen por una captura real de la app y completar el link de DEMO (store/video) -->
-            <div
-              class="cards--proyectos card_recuerdaMed"
-              data-aos="zoom-in-up"
-            >
+            <!-- Proyecto destacado: Recuerda Med -->
+            <!-- TODO: reemplazar el SVG por 2-3 capturas reales de la app (assets/images/recuerda-med/)
+                 y agregar el enlace a Google Play cuando esté publicada. -->
+            <article class="cards--proyectos card_recuerdaMed" data-aos="zoom-in-up">
               <div class="container_imgCard--proyectos">
                 <img
-                  src="./assets/images/pastillas-track.svg"
-                  alt="Proyecto: Recuerda Med"
+                  src="./assets/images/recuerda-med.svg"
+                  alt="Logo de la app Recuerda Med"
+                  width="800"
+                  height="480"
+                  loading="lazy"
                 />
               </div>
 
               <div class="container_textCard--proyectos">
-                <h2>Recuerda Med</h2>
-                <p>
-                  App móvil SaaS de gestión de medicamentos, desarrollada como
-                  Full-Stack Freelancer. Arquitectura offline-first con
-                  sincronización en Supabase, autenticación multitenant con Row
-                  Level Security, y suscripciones pagas integradas con Stripe.
-                  Publicada en Google Play mediante EAS Build.
+                <span class="project_badge" data-section="projects" data-value="featured">
+                  Destacado
+                </span>
+                <h3>Recuerda Med</h3>
+                <p data-section="projects" data-value="recuerda_desc">
+                  App móvil SaaS de gestión de medicamentos, desarrollada como Full Stack freelance.
+                  Arquitectura offline-first con sincronización en Supabase, autenticación
+                  multitenant con Row Level Security y suscripciones con Stripe (Checkout, portal de
+                  cliente y webhooks). Builds Android con EAS Build.
                 </p>
+                <ul class="tags">
+                  <li>React Native</li>
+                  <li>Expo</li>
+                  <li>Supabase</li>
+                  <li>PostgreSQL</li>
+                  <li>Stripe</li>
+                </ul>
               </div>
 
               <div class="container_btn--proyectos">
-                <p class="proyecto_nota">
+                <p class="proyecto_nota" data-section="projects" data-value="recuerda_note">
                   Proyecto freelance para cliente — código privado
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div
-              class="cards--proyectos card_JuegoAhorcado"
-              data-aos="zoom-in-up"
-            >
+            <article class="cards--proyectos card_JuegoAhorcado" data-aos="zoom-in-up">
               <div class="container_imgCard--proyectos">
                 <img
-                  src="./assets/images/babiesmarket.png"
-                  alt="Proyecto: Babies Marketplace"
+                  src="./assets/images/babiesmarket.webp"
+                  alt="Captura de Babies Marketplace"
+                  width="900"
+                  height="430"
+                  loading="lazy"
                 />
               </div>
 
               <div class="container_textCard--proyectos">
-                <h2 data-section="proyectos" data-value="title-proyecto1">
-                  Babies Marketplace
-                </h2>
-                <p data-section="proyectos" data-value="info-proyecto1">
-                  Sitio web estilo marketplace donde el usuario puede subir y/o
-                  comprar productos de segunda mano para los padres primerizos.
-                  Se permite el almacenamiento tanto de los usuarios,
-                  publicaciones y verificación por JWT.
+                <h3>Babies Marketplace</h3>
+                <p data-section="projects" data-value="babies_desc">
+                  Marketplace C2C para comprar y vender artículos de bebé de segunda mano. Frontend
+                  en React, API REST propia en Node.js + Express con autenticación JWT y rutas
+                  protegidas, y base de datos PostgreSQL.
                 </p>
+                <ul class="tags">
+                  <li>React</li>
+                  <li>Node.js</li>
+                  <li>Express</li>
+                  <li>PostgreSQL</li>
+                  <li>JWT</li>
+                </ul>
               </div>
 
               <div class="container_btn--proyectos">
                 <a
                   href="https://dancing-halva-906a5d.netlify.app/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_demo"
                 >
-                  <button class="btn_demo">
-                    <img
-                      src="./assets/images/icon-demoProyecto.png"
-                      alt="Demostración"
-                    />DEMO
-                  </button>
+                  <img src="./assets/images/icon-demoProyecto.png" alt="" />
+                  DEMO
                 </a>
-
-                <a href="#">
-                  <button class="btn_repo">
-                    <img
-                      src="./assets/images/icon-githubProyecto.png"
-                      alt="Repositorio de github"
-                    />REPO
-                  </button>
+                <!-- TODO: publicar el repositorio del marketplace y descomentar este botón con su URL real.
+                <a href="https://github.com/Descolle/NOMBRE-DEL-REPO" target="_blank" rel="noopener noreferrer" class="btn_repo">
+                  <img src="./assets/images/icon-githubProyecto.png" alt="" />REPO
                 </a>
+                -->
               </div>
-            </div>
+            </article>
 
-            <div class="cards--proyectos card_portafolio" data-aos="zoom-in-up">
+            <article class="cards--proyectos card_portafolio" data-aos="zoom-in-up">
               <div class="container_imgCard--proyectos">
                 <img
-                  src="./assets/images/portafolio.jpg"
-                  alt="Proyecto: Portafolio"
+                  src="./assets/images/portafolio.webp"
+                  alt="Captura de este portafolio"
+                  width="900"
+                  height="428"
+                  loading="lazy"
                 />
               </div>
 
               <div class="container_textCard--proyectos text-portafolio">
-                <h2 data-section="proyectos" data-value="title-proyecto2">
-                  Portafolio
-                </h2>
-                <p data-section="proyectos" data-value="info-proyecto2">
-                  Mi portafolio web personal, donde se encuentran algunos de mis
-                  proyectos más destacados, mis habilidades técnicas y un poco
-                  sobre mi formación.
+                <h3>Portafolio</h3>
+                <p data-section="projects" data-value="portfolio_desc">
+                  Este sitio: bilingüe (ES/EN), responsive, accesible y desplegado en Vercel, con
+                  SEO básico y vista previa al compartir el enlace. HTML, CSS y JavaScript sin
+                  frameworks.
                 </p>
+                <ul class="tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Vercel</li>
+                </ul>
               </div>
 
               <div class="container_btn--proyectos">
-                <a href="#" target="_blank">
-                  <button class="btn_demo">
-                    <img
-                      src="./assets/images/icon-demoProyecto.png"
-                      alt="Demostración"
-                    />DEMO
-                  </button>
+                <a
+                  href="https://portafolio-ten-alpha-63.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_demo"
+                >
+                  <img src="./assets/images/icon-demoProyecto.png" alt="" />
+                  DEMO
                 </a>
-
                 <a
                   href="https://github.com/Descolle/Portafolio"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_repo"
                 >
-                  <button class="btn_repo">
-                    <img
-                      src="./assets/images/icon-githubProyecto.png"
-                      alt="Repositorio de github"
-                    />REPO
-                  </button>
+                  <img src="./assets/images/icon-githubProyecto.png" alt="" />
+                  REPO
                 </a>
               </div>
-            </div>
+            </article>
           </div>
 
           <div class="proyectos__row proyectos__row--bottom">
-            <div
-              class="cards--proyectos card_encriptador"
-              data-aos="zoom-in-up"
-            >
+            <article class="cards--proyectos card_encriptador" data-aos="zoom-in-up">
               <div class="container_imgCard--proyectos">
-                <img src="./assets/images/gremio.png" alt="Gremio" />
+                <img
+                  src="./assets/images/gremio.webp"
+                  alt="Captura del gremio para mesa de D&amp;D"
+                  width="900"
+                  height="432"
+                  loading="lazy"
+                />
               </div>
 
               <div class="container_textCard--proyectos">
-                <h2 data-section="proyectos" data-value="title-proyecto3">
-                  Gremio para mesa de D&D
-                </h2>
-                <p data-section="proyectos" data-value="info-proyecto3">
-                  Proyecto de Front-End para una mesa de juego de rol. El
-                  objetivo era que por medio de esta pagina los jugadores
-                  pudiesen escoger la/s misión/es que iban a hacer durante la
-                  sesión.
-                  <br />
-                  <br />
+                <h3>Gremio D&amp;D</h3>
+                <p data-section="projects" data-value="gremio_desc">
+                  Sitio frontend para una mesa de rol donde los jugadores eligen las misiones de
+                  cada sesión.
                 </p>
+                <ul class="tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
               </div>
 
               <div class="container_btn--proyectos">
                 <a
                   href="https://descolle.github.io/descolle-M2_Final/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_demo"
                 >
-                  <button class="btn_demo">
-                    <img
-                      src="./assets/images/icon-demoProyecto.png"
-                      alt="Demostración"
-                    />DEMO
-                  </button>
+                  <img src="./assets/images/icon-demoProyecto.png" alt="" />
+                  DEMO
                 </a>
-
                 <a
                   href="https://github.com/Descolle/descolle-M2_Final"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_repo"
                 >
-                  <button class="btn_repo">
-                    <img
-                      src="./assets/images/icon-githubProyecto.png"
-                      alt="Repositorio de github"
-                    />REPO
-                  </button>
+                  <img src="./assets/images/icon-githubProyecto.png" alt="" />
+                  REPO
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div
-              class="cards--proyectos card_encriptador"
-              data-aos="zoom-in-up"
-            >
+            <article class="cards--proyectos card_encriptador" data-aos="zoom-in-up">
               <div class="container_imgCard--proyectos">
                 <img
-                  src="./assets/images/jabones_amores.png"
-                  alt="Jabones_amores"
+                  src="./assets/images/jabones-amores.webp"
+                  alt="Captura de la landing Jabones Amores"
+                  width="900"
+                  height="456"
+                  loading="lazy"
                 />
               </div>
 
               <div class="container_textCard--proyectos">
-                <h2 data-section="proyectos" data-value="title-proyecto3">
-                  Jabones Amores
-                </h2>
-                <p data-section="proyectos" data-value="info-proyecto3">
-                  Landing Page para una empresa de jabones artesanales. El
-                  objetivo era crear una página atractiva y funcional que
-                  reflejara la esencia de la marca y facilitara la interacción
-                  con los clientes.
-                  <br />
-                  <br />
+                <h3>Jabones Amores</h3>
+                <p data-section="projects" data-value="jabones_desc">
+                  Landing page responsive para una marca de jabones artesanales, hecha con
+                  componentes React y Bootstrap y desplegada en Vercel.
                 </p>
+                <ul class="tags">
+                  <li>React</li>
+                  <li>Bootstrap</li>
+                  <li>Vercel</li>
+                </ul>
               </div>
 
+              <!-- Corregido: DEMO y REPO estaban invertidos -->
               <div class="container_btn--proyectos">
+                <a
+                  href="https://jabones-amores.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_demo"
+                >
+                  <img src="./assets/images/icon-demoProyecto.png" alt="" />
+                  DEMO
+                </a>
                 <a
                   href="https://github.com/Descolle/jabones_amores"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn_repo"
                 >
-                  <button class="btn_demo">
-                    <img
-                      src="./assets/images/icon-demoProyecto.png"
-                      alt="Demostración"
-                    />DEMO
-                  </button>
-                </a>
-
-                <a href="https://jabones-amores.vercel.app/" target="_blank">
-                  <button class="btn_repo">
-                    <img
-                      src="./assets/images/icon-githubProyecto.png"
-                      alt="Repositorio de github"
-                    />REPO
-                  </button>
+                  <img src="./assets/images/icon-githubProyecto.png" alt="" />
+                  REPO
                 </a>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formación -->
+      <section class="formacion" id="formacion">
+        <h2 data-section="education" data-value="title" data-aos="fade-up">Formación</h2>
+
+        <div class="cards_container--formacion">
+          <div class="cards--formacion" data-aos="fade-up">
+            <img
+              class="logo-unal"
+              src="./assets/images/certif-react.webp"
+              alt="Certificado Desarrollador Front-End React"
+              width="640"
+              height="465"
+              loading="lazy"
+            />
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="react">Desarrollador Front-End React</p>
+              <p>2024</p>
+            </div>
+          </div>
+
+          <div class="cards--formacion" data-aos="fade-up">
+            <img
+              class="logo-unal"
+              src="./assets/images/certif-node.webp"
+              alt="Certificado Backend con Node y Express"
+              width="640"
+              height="465"
+              loading="lazy"
+            />
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="node">Backend con Node y Express</p>
+              <p>2024</p>
+            </div>
+          </div>
+
+          <div class="cards--formacion" data-aos="fade-up">
+            <img
+              class="logo-unal"
+              src="./assets/images/certif-sql.webp"
+              alt="Certificado SQL"
+              width="640"
+              height="465"
+              loading="lazy"
+            />
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="sql">SQL (Structured Query Language)</p>
+              <p>2025</p>
+            </div>
+          </div>
+
+          <div class="cards--formacion" data-aos="fade-up">
+            <img
+              class="logo-unal"
+              src="./assets/images/certif-css.webp"
+              alt="Certificado CSS"
+              width="640"
+              height="465"
+              loading="lazy"
+            />
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="css">Certificado CSS</p>
+              <p>2024</p>
+            </div>
+          </div>
+
+          <!-- Tarjetas sin imagen (no había archivo de certificado en el repo) -->
+          <div class="cards--formacion cards--formacion--badge" data-aos="fade-up">
+            <span class="badge_glyph" aria-hidden="true">C1</span>
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="english">Inglés avanzado C1</p>
+              <p>2025</p>
+            </div>
+          </div>
+
+          <div class="cards--formacion cards--formacion--badge" data-aos="fade-up">
+            <span class="badge_glyph" aria-hidden="true">IA</span>
+            <div class="container_texto--formacion">
+              <p data-section="education" data-value="ai">
+                Desarrollo con Inteligencia Artificial (Big School)
+              </p>
+              <p>2025</p>
             </div>
           </div>
         </div>
@@ -718,16 +677,17 @@
 
       <!-- Contacto -->
       <section class="contacto" id="contacto">
-        <h1 data-section="contacto" data-value="title" data-aos="fade-up">
-          Contacto
-        </h1>
+        <h2 data-section="contact" data-value="title" data-aos="fade-up">Contacto</h2>
 
         <div class="container_box--contacto" data-aos="fade-up">
           <div class="container--contacto">
             <div class="container_text--contacto">
-              <p data-section="contacto" data-value="text">
-                Completa el siguiente formulario y me pondré en contacto contigo
-                lo antes posible.
+              <p data-section="contact" data-value="text">
+                ¿Tienes una vacante o un proyecto? Escríbeme y te respondo lo antes posible.
+              </p>
+              <p class="contact_direct">
+                <span data-section="contact" data-value="direct">También puedes escribirme a</span>
+                <a href="mailto:tomascorvalan14@gmail.com">tomascorvalan14@gmail.com</a>
               </p>
             </div>
 
@@ -739,17 +699,14 @@
               hidden
             ></p>
 
-            <form
-              id="form"
-              class="form-contact"
-              name="contacto-portafolio"
-              novalidate
-            >
+            <form id="form" class="form-contact" name="contacto-portafolio">
               <input
                 id="nombre"
                 type="text"
                 name="name"
                 placeholder="Nombre | Name"
+                aria-label="Nombre | Name"
+                autocomplete="name"
                 required
               />
               <input
@@ -757,6 +714,8 @@
                 type="email"
                 name="email"
                 placeholder="E-mail"
+                aria-label="E-mail"
+                autocomplete="email"
                 required
               />
               <input
@@ -764,6 +723,7 @@
                 type="text"
                 name="affair"
                 placeholder="Asunto | Subject"
+                aria-label="Asunto | Subject"
                 required
               />
               <textarea
@@ -772,16 +732,12 @@
                 rows="4"
                 name="message"
                 placeholder="Mensaje | Message"
+                aria-label="Mensaje | Message"
                 required
               ></textarea>
 
               <div class="btn_form--contacto">
-                <button
-                  id="btn-enviar"
-                  type="submit"
-                  data-section="contacto"
-                  data-value="btn-enviar"
-                >
+                <button id="btn-enviar" type="submit" data-section="contact" data-value="send">
                   Enviar
                 </button>
               </div>
@@ -797,44 +753,38 @@
           <a
             href="https://www.linkedin.com/in/tomas-c-0893b120b/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
-            <img src="./assets/images/icon-linkedin.png" alt="LinkedIn" />
+            <img src="./assets/images/icon-linkedin.png" alt="" />
           </a>
-          <a href="https://github.com/Descolle" target="_blank">
-            <img src="./assets/images/icon-github.png" alt="GitHub" />
-          </a>
-          <a href="https://www.instagram.com/toma_scorvalan/" target="_blank">
-            <img src="./assets/images/icon-instagram.png" alt="Instagram" />
+          <a
+            href="https://github.com/Descolle"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <img src="./assets/images/icon-github.png" alt="" />
           </a>
         </div>
 
         <div class="container_text--footer">
-          <span>Copyright © | Coded with</span>
-          <img src="./assets/images/icon-corazon.png" alt="Corazón" />
+          <span>Copyright © 2026 | Coded with</span>
+          <img src="./assets/images/icon-corazon.png" alt="amor" />
           <span>by</span>
           <span>Tomás Corvalán</span>
         </div>
       </div>
     </footer>
 
-    <div class="go-top-container">
+    <div class="go-top-container" role="button" tabindex="0" aria-label="Volver arriba">
       <div class="go-top-button">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
       </div>
     </div>
 
-    <!-- Archivo Js -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <!-- Librería de animaciones -->
-    <script>
-      AOS.init({
-        offset: 60, // px antes de que el elemento entre en pantalla para disparar la animación
-        duration: 600,
-        easing: "ease-out-cubic",
-        once: true, // anima solo la primera vez que aparece, no cada vez que se hace scroll
-      });
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Mi script -->
     <script src="./script.js"></script>

@@ -14,7 +14,7 @@ nav.nav_menu a {
   font-size: 1.6rem;
   padding: 0.5rem;
   color: var(--white);
-  font-family: "Cooper Hewitt";
+  font-family: 'Cooper Hewitt';
   text-decoration: none;
   letter-spacing: 0.2rem;
   right: 0;
@@ -111,7 +111,7 @@ div.btn {
 }
 
 .container_parrafo-info p {
-  font-family: "Cooper Hewitt";
+  font-family: 'Cooper Hewitt';
   color: var(--light-grey);
   font-size: 1.4rem;
   letter-spacing: 1px;
@@ -137,12 +137,13 @@ div.btn {
 }
 
 .contact_button {
+  text-decoration: none;
   display: inline-block;
   background-color: var(--beaver);
   border-radius: 3rem;
   padding: 0.7rem 4rem 0.6rem 4rem;
   color: var(--jet);
-  font-family: "Cooper Hewitt";
+  font-family: 'Cooper Hewitt';
   font-weight: bold;
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -180,7 +181,7 @@ div.btn {
   padding-bottom: 4rem;
 }
 
-.sobreMi h1 {
+.sobreMi h2 {
   margin-top: 2rem;
   font-size: 3rem;
 }
@@ -214,7 +215,7 @@ div.btn {
   position: relative;
 }
 
-.habilidades h1 {
+.habilidades h2 {
   padding-top: 8rem;
   font-size: 3rem;
 }
@@ -235,8 +236,9 @@ div.btn {
 }
 
 .cards_container--habilidades {
-  grid-template-columns: 13rem 13rem 13rem 13rem;
-  grid-template-rows: 14rem 14rem;
+  grid-template-columns: repeat(6, 13rem);
+  grid-auto-rows: 14rem;
+  gap: 3rem;
   padding: 0;
   margin-top: 2rem;
 }
@@ -259,7 +261,7 @@ div.btn {
   position: relative;
 }
 
-.formacion h1 {
+.formacion h2 {
   padding-top: 8rem;
   font-size: 3rem;
 }
@@ -275,7 +277,7 @@ div.btn {
 
 /* Proyectos */
 
-.proyectos h1 {
+.proyectos h2 {
   padding-top: 8rem;
   font-size: 3rem;
 }
@@ -305,13 +307,15 @@ div.btn {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
 }
 
 .cards--proyectos {
-  width: 40rem;
-  height: 40rem;
+  width: 36rem;
+  height: auto;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -328,10 +332,11 @@ div.btn {
 }
 
 .text-portafolio {
-  margin-top: -3rem;
+  margin-top: 0;
 }
 
-.container_btn--proyectos button {
+.container_btn--proyectos .btn_demo,
+.container_btn--proyectos .btn_repo {
   width: auto;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
@@ -339,7 +344,7 @@ div.btn {
 
 /* Contacto */
 
-.contacto h1 {
+.contacto h2 {
   padding: 8rem 0 2.5rem 0;
   font-size: 3rem;
 }

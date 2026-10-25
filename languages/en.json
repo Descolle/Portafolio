@@ -1,56 +1,57 @@
 {
-    "menu": {
-        "item2": "About me",
-        "item3": "Skills",
-        "item4": "Training",
-        "item5": "Projects",
-        "item6": "Contact"
-    },
-
-    "home": {
-        "home_text-1": "Hi! I'm",
-        "home_text-3": "Front-End Web Developer",
-        "parrafo-info": "Statistics and programming student focused on Frontend Web Development. As a person who loves intuitive and aesthetically pleasing designs I seek to create projects that provide the best user experience.",
-        "cv_button": "Download CV",
-        "contact_button": "Contact"
-    },
-
-    "sobre-mi": {
-        "title": "About me",
-        "texto_sobreMi": "I'm a Statistics undergraduate student and a self-taught Web Development student focused on Frontend programming.<br>I aspire to get a job in the Web Development world, gain experience, new knowledge and strengthen my professional life.<br><br>I'm an empathetic and enthusiastic person, with skills focused on teamwork, assertive communication, problem solving, responsible and proactive, I like to learn from others and continuously improve myself."
-    },
-
-    "habilidades": {
-        "title": "Skills"
-    },
-
-    "formacion": {
-        "title": "Training",
-        "formacion1": "Statistic",
-        "tiempo-formacion1": "2019 - In progress",
-        "formacion2": "Full-Stack Developer",
-        "tiempo-formacion2": "2022 - In progress",
-        "formacion3": "Accounting for Commercial and Financial Transactions"
-    },
-
-    "proyectos": {
-        "title": "Projects",
-        "title-proyecto1": "Hangman Game",
-        "info-proyecto1": "A game where the user must guess the secret word with a certain number of chances. The word is chosen randomly by the program and the user will lose the moment the gallows is completed.",
-        "title-proyecto2": "Portfolio",
-        "info-proyecto2": "My personal web portfolio, where you can find some of my most outstanding projects, my technical skills and a bit about my background.",
-        "title-proyecto3": "Text Encryptor",
-        "info-proyecto3": "An encryptor where the user can type a text and the encryptor encrypts it with pre-programmed keys. The encryptor can also decrypt the text.",
-        "title-proyecto4": "Pastillas Track App",
-        "info-proyecto4": "Mobile app built with React Native and Expo to log medications, mark doses as taken, and get daily local notifications. Uses AsyncStorage for persistence and Context API for global state."
-    },
-
-    "contacto": {
-        "title": "Contact",
-        "text": "Complete the form below and I will contact you as soon as possible.",
-        "btn-enviar": "Send",
-        "form-ok": "Message sent. I will get back to you soon.",
-        "form-error": "Could not send. Please try again or reach out on LinkedIn.",
-        "form-config": "Missing send key: open script.js and paste your access key from web3forms.com (see comment in that file)."
-    }
+  "a11y": {
+    "skip": "Skip to content"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Hi! I'm",
+    "role": "Full Stack Developer",
+    "intro": "I build web and mobile applications end to end: from the interface to the database and payments. I work with React, React Native, TypeScript, Node.js and PostgreSQL/Supabase, and I'm looking for my first Junior Full Stack / Front End role to build products that solve real problems.",
+    "cv_button": "Download CV",
+    "contact_button": "Contact"
+  },
+  "about": {
+    "title": "About me",
+    "text": "I'm a Full Stack Developer trained at the Desafío Latam bootcamp (2024), with personal projects ever since. I come from the health field (Medical Technology), which gave me process discipline and domain insight for products like the one I built: a medication management app.<br><br>As a freelancer I built a SaaS mobile app end to end, with multitenant authentication, offline-first behavior and Stripe subscriptions. I have also maintained existing websites and have basic knowledge of WordPress and Python. My English is C1, so I can work with teams and documentation in English.<br><br>I like learning through real projects: right now I'm going deeper into TypeScript and Next.js."
+  },
+  "skills": {
+    "title": "Skills",
+    "learning": "learning",
+    "basic": "basic"
+  },
+  "projects": {
+    "title": "Projects",
+    "featured": "Featured",
+    "recuerda_desc": "SaaS mobile app for medication management, built as a freelance Full Stack developer. Offline-first architecture synced with Supabase, multitenant authentication with Row Level Security, and Stripe subscriptions (Checkout, customer portal and webhooks). Android builds with EAS Build.",
+    "recuerda_note": "Freelance client project — private code",
+    "babies_desc": "C2C marketplace to buy and sell second-hand baby items. React frontend, a custom REST API in Node.js + Express with JWT authentication and protected routes, and a PostgreSQL database.",
+    "portfolio_desc": "This site: bilingual (ES/EN), responsive, accessible and deployed on Vercel, with basic SEO and a link preview when shared. Plain HTML, CSS and JavaScript.",
+    "gremio_desc": "Frontend site for a tabletop RPG group where players pick the missions for each session.",
+    "jabones_desc": "Responsive landing page for a handmade soap brand, built with React components and Bootstrap and deployed on Vercel."
+  },
+  "education": {
+    "title": "Education",
+    "react": "Front-End React Developer",
+    "node": "Backend with Node and Express",
+    "sql": "SQL (Structured Query Language)",
+    "css": "CSS Certificate",
+    "english": "Advanced English C1",
+    "ai": "Development with Artificial Intelligence (Big School)"
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Have an opening or a project? Write to me and I'll get back to you as soon as possible.",
+    "direct": "You can also email me at",
+    "send": "Send",
+    "form-ok": "Message sent. I'll get back to you as soon as possible.",
+    "form-error": "Could not send. Try again or email me at tomascorvalan14@gmail.com.",
+    "form-mailto": "Opening your email app to send the message…"
+  }
 }

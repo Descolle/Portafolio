@@ -1,179 +1,234 @@
-const btn = document.getElementById('button');
+/* ===== Referencias al DOM ===== */
+const menuButton = document.getElementById('button');
+const navMenu = document.querySelector('.nav_menu');
 const sectionAll = document.querySelectorAll('section[id]');
 const flagsElement = document.getElementById('flags');
 const textsToChange = document.querySelectorAll('[data-section]');
+const goTop = document.querySelector('.go-top-container');
 
 /**
- * Correo del formulario de contacto (Web3Forms, gratis):
- * 1. Entra en https://web3forms.com y genera un Access Key con tu email.
- * 2. Pega la clave abajo. Los envíos llegan a ese correo.
- * Si el sitio está solo en Netlify, puedes usar Netlify Forms en su lugar
- * (atributo netlify en el form + notificaciones en el panel).
+ * Formulario de contacto.
+ * - Con clave de Web3Forms (gratis, https://web3forms.com) el mensaje llega a tu correo sin salir del sitio.
+ * - Sin clave, el formulario abre el cliente de correo del visitante con el mensaje ya redactado (mailto),
+ *   así que funciona desde el primer día.
  */
 const WEB3FORMS_ACCESS_KEY = '';
+const CONTACT_EMAIL = 'tomascorvalan14@gmail.com';
 
-window.__portfolioLang = 'es';
+const SUPPORTED_LANGS = ['es', 'en'];
+const LANG_STORAGE_KEY = 'portfolio-lang';
 
 let i18nBundle = {};
 
-/* ===== Loader =====*/
+/* ===== Utilidades ===== */
+const onActivate = (element, handler) => {
+  element.addEventListener('click', handler);
+  element.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handler(event);
+    }
+  });
+};
+
+/* ===== Animaciones (AOS) ===== */
+if (window.AOS) {
+  window.AOS.init({
+    offset: 60,
+    duration: 600,
+    easing: 'ease-out-cubic',
+    once: true,
+  });
+}
+
+/* ===== Loader ===== */
 window.addEventListener('load', () => {
-    const contenedorLoader = document.querySelector('.container--loader');
-    contenedorLoader.style.opacity = 0;
-    contenedorLoader.style.visibility = 'hidden';
-})
-
-/*===== Header =====*/
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    header.classList.toggle('abajo', window.scrollY > 0);
+  const loader = document.querySelector('.container--loader');
+  if (loader) {
+    loader.style.opacity = 0;
+    loader.style.visibility = 'hidden';
+  }
 });
 
-/*===== Boton Menu =====*/
-btn.addEventListener('click', function() {
-    if (this.classList.contains('active')) {
-        this.classList.remove('active');
-        this.classList.add('not-active');
-        document.querySelector('.nav_menu').classList.remove('active');
-        document.querySelector('.nav_menu').classList.add('not-active');
-    }
-    else {
-        this.classList.add('active');
-        this.classList.remove('not-active');
-        document.querySelector('.nav_menu').classList.remove('not-active');
-        document.querySelector('.nav_menu').classList.add('active');
-    }
+/* ===== Menú móvil ===== */
+function setMenuOpen(open) {
+  menuButton.classList.toggle('active', open);
+  menuButton.classList.toggle('not-active', !open);
+  navMenu.classList.toggle('active', open);
+  navMenu.classList.toggle('not-active', !open);
+  menuButton.setAttribute('aria-expanded', String(open));
+}
+
+onActivate(menuButton, () => {
+  setMenuOpen(!menuButton.classList.contains('active'));
 });
 
-/*===== Cambio de idioma =====*/
-const changeLanguage = async language => {
-    window.__portfolioLang = language;
-    const requestJson = await fetch(`./languages/${language}.json`);
-    const texts = await requestJson.json();
-    i18nBundle = texts;
+// Cierra el menú al elegir una sección (en móvil tapaba el contenido)
+navMenu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => setMenuOpen(false));
+});
 
-    for(const textToChange of textsToChange) {
-        const section = textToChange.dataset.section;
-        const value = textToChange.dataset.value;
+/* ===== Idioma ===== */
+async function changeLanguage(language) {
+  if (!SUPPORTED_LANGS.includes(language)) return;
 
-        textToChange.innerHTML = texts[section][value];
-    }
+  try {
+    const response = await fetch(`./languages/${language}.json`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    i18nBundle = await response.json();
+  } catch {
+    return; // si falla, se mantiene el texto actual
+  }
+
+  document.documentElement.lang = language;
+  try {
+    localStorage.setItem(LANG_STORAGE_KEY, language);
+  } catch {
+    /* almacenamiento no disponible: no es crítico */
+  }
+
+  textsToChange.forEach((element) => {
+    const { section, value } = element.dataset;
+    const text = i18nBundle[section]?.[value];
+    if (text !== undefined) element.innerHTML = text;
+  });
 }
 
 function contactFormMessage(key) {
-    const c = i18nBundle.contacto;
-    if (c && c[key]) return c[key];
-    const fallback = {
-        'form-ok': 'Mensaje enviado. Te responderé lo antes posible.',
-        'form-error': 'No se pudo enviar. Intenta de nuevo o escríbeme por LinkedIn.',
-        'form-config': 'Configura WEB3FORMS_ACCESS_KEY en script.js (web3forms.com).'
-    };
-    return fallback[key] || '';
+  return (
+    i18nBundle.contact?.[key] ??
+    {
+      'form-ok': 'Mensaje enviado. Te responderé lo antes posible.',
+      'form-error': `No se pudo enviar. Escríbeme a ${CONTACT_EMAIL}.`,
+      'form-mailto': 'Abriendo tu correo para enviar el mensaje…',
+    }[key] ??
+    ''
+  );
 }
 
-/*===== Formulario de contacto → email (Web3Forms) =====*/
+flagsElement.querySelectorAll('[data-language]').forEach((flag) => {
+  onActivate(flag, () => changeLanguage(flag.dataset.language));
+});
+
+// Idioma inicial: el guardado por el visitante o, si no hay, el del navegador
+(function initLanguage() {
+  let saved = null;
+  try {
+    saved = localStorage.getItem(LANG_STORAGE_KEY);
+  } catch {
+    /* sin almacenamiento */
+  }
+  const browser = (navigator.language || 'es').slice(0, 2);
+  const initial = SUPPORTED_LANGS.includes(saved) ? saved : browser;
+  if (initial !== 'es' && SUPPORTED_LANGS.includes(initial)) {
+    changeLanguage(initial);
+  } else {
+    // Carga el bundle en español para los mensajes del formulario
+    fetch('./languages/es.json')
+      .then((r) => r.json())
+      .then((json) => {
+        i18nBundle = json;
+      })
+      .catch(() => {});
+  }
+})();
+
+/* ===== Formulario de contacto ===== */
 const contactForm = document.getElementById('form');
 const formStatusEl = document.getElementById('form-status');
 
 function setFormStatus(message, type) {
-    if (!formStatusEl) return;
-    formStatusEl.hidden = !message;
-    formStatusEl.textContent = message || '';
-    formStatusEl.classList.remove('is-ok', 'is-error');
-    if (type === 'ok') formStatusEl.classList.add('is-ok');
-    if (type === 'error') formStatusEl.classList.add('is-error');
+  if (!formStatusEl) return;
+  formStatusEl.hidden = !message;
+  formStatusEl.textContent = message || '';
+  formStatusEl.classList.remove('is-ok', 'is-error');
+  if (type === 'ok') formStatusEl.classList.add('is-ok');
+  if (type === 'error') formStatusEl.classList.add('is-error');
+}
+
+function openMailto({ name, email, affair, message }) {
+  const subject = encodeURIComponent(`[Portafolio] ${affair}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+async function sendWithWeb3Forms({ name, email, affair, message }) {
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      name,
+      email,
+      subject: `[Portafolio] ${affair}`,
+      message,
+    }),
+  });
+  const data = await response.json().catch(() => ({}));
+  return data;
 }
 
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        setFormStatus('', null);
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    setFormStatus('', null);
 
-        if (!WEB3FORMS_ACCESS_KEY) {
-            setFormStatus(contactFormMessage('form-config'), 'error');
-            return;
-        }
+    if (!contactForm.reportValidity()) return;
 
-        const submitBtn = contactForm.querySelector('#btn-enviar');
-        const affair = contactForm.querySelector('#asunto')?.value?.trim() || '';
-        const payload = {
-            access_key: WEB3FORMS_ACCESS_KEY,
-            name: contactForm.querySelector('#nombre')?.value?.trim() || '',
-            email: contactForm.querySelector('#email')?.value?.trim() || '',
-            subject: `[Portafolio] ${affair}`,
-            message: contactForm.querySelector('#mensaje')?.value?.trim() || ''
-        };
+    const fields = {
+      name: contactForm.querySelector('#nombre').value.trim(),
+      email: contactForm.querySelector('#email').value.trim(),
+      affair: contactForm.querySelector('#asunto').value.trim(),
+      message: contactForm.querySelector('#mensaje').value.trim(),
+    };
 
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-        }
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setFormStatus(contactFormMessage('form-mailto'), 'ok');
+      openMailto(fields);
+      return;
+    }
 
-        try {
-            const res = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
-            const data = await res.json().catch(() => ({}));
+    const submitBtn = contactForm.querySelector('#btn-enviar');
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
 
-            if (data.success) {
-                setFormStatus(contactFormMessage('form-ok'), 'ok');
-                contactForm.reset();
-            } else {
-                setFormStatus(
-                    data.message || contactFormMessage('form-error'),
-                    'error'
-                );
-            }
-        } catch {
-            setFormStatus(contactFormMessage('form-error'), 'error');
-        } finally {
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '';
-            }
-        }
-    });
+    try {
+      const data = await sendWithWeb3Forms(fields);
+      if (data.success) {
+        setFormStatus(contactFormMessage('form-ok'), 'ok');
+        contactForm.reset();
+      } else {
+        setFormStatus(data.message || contactFormMessage('form-error'), 'error');
+      }
+    } catch {
+      setFormStatus(contactFormMessage('form-error'), 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+    }
+  });
 }
 
-flagsElement.addEventListener('click', (e) => {
-    changeLanguage(e.target.parentElement.dataset.language);
-})
+/* ===== Scroll: header, sección activa y botón "ir arriba" ===== */
+const header = document.querySelector('header');
 
-/*===== class active por secciones =====*/
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    sectionAll.forEach((current) => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 100;
-        const sectionId = current.getAttribute('id');
+function onScroll() {
+  const scrollY = window.scrollY;
 
-        if (scrollY > sectionTop && scrollY < sectionTop + sectionHeight) {
-            document.querySelector('nav a[href*=' + sectionId + ']').classList.add('active');
-        }
-        else {
-            document.querySelector('nav a[href*=' + sectionId + ']').classList.remove('active');
-        }
-    });
-});
+  header.classList.toggle('abajo', scrollY > 0);
+  goTop.classList.toggle('show', scrollY > 100);
 
-/*===== Boton y función ir arriba =====*/
-window.onscroll = function() {
-    if (document.documentElement.scrollTop > 100) {
-        document.querySelector('.go-top-container').classList.add('show');
-    }
-    else {
-        document.querySelector('.go-top-container').classList.remove('show');
-    }
+  sectionAll.forEach((section) => {
+    const top = section.offsetTop - 100;
+    const link = navMenu.querySelector(`a[href="#${section.id}"]`);
+    if (!link) return;
+    link.classList.toggle('active', scrollY > top && scrollY < top + section.offsetHeight);
+  });
 }
 
-document.querySelector('.go-top-container').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+onActivate(goTop, () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });

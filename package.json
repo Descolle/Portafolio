@@ -1,0 +1,21 @@
+{
+  "name": "portafolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portafolio personal de Tomás Corvalán — Desarrollador Full Stack",
+  "scripts": {
+    "start": "npx --yes serve . -l 5501",
+    "lint": "eslint script.js",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json,md}\"",
+    "validate": "html-validate index.html",
+    "test:i18n": "node scripts/check-i18n.mjs",
+    "check": "npm run lint && npm run format:check && npm run validate && npm run test:i18n"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "html-validate": "^9.0.0",
+    "prettier": "^3.3.0"
+  }
+}

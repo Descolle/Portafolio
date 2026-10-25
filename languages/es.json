@@ -1,56 +1,57 @@
 {
-    "menu": {
-        "item2": "Sobre mí",
-        "item3": "Habilidades",
-        "item4": "Formación",
-        "item5": "Proyectos",
-        "item6": "Contacto"
-    },
-
-    "home": {
-        "home_text-1": "Hola! Soy",
-        "home_text-3": "Desarrolladora web Front-End",
-        "parrafo-info": "Estudiante de Estadistica y programación enfocada al Desarrollo Web Frontend. Como persona amante a los diseños intuitivos y estéticamente agradables busco crear proyectos que brinden la mejor experiencia para el usuario.",
-        "cv_button": "Descargar CV",
-        "contact_button": "Contacto"
-    },
-
-    "sobre-mi": {
-        "title": "Sobre mí",
-        "texto_sobreMi": "Soy estudiante del pregrado de Estadística y estudiante autodidacta de Desarrollo Web enfocado en programación Frontend.<br>Aspiro conseguir empleo en el mundo del Desarrollo Web, adquirir experiencia, nuevos conocimientos y fortalecer mi vida profesional.<br><br>Soy una persona empática y entusiasta, con competencias enfocadas en el trabajo en equipo, comunicación asertiva, resolución de problemas, responsable y proactiva, me gusta aprender de los demás y superarme continuamente."
-    },
-
-    "habilidades": {
-        "title": "Habilidades"
-    },
-
-    "formacion": {
-        "title": "Formación",
-        "formacion1": "Estadística",
-        "tiempo-formacion1": "2019 - En curso",
-        "formacion2": "Desarrolladora Full-Stack",
-        "tiempo-formacion2": "2022 - En curso",
-        "formacion3": "Contabilización de Operaciones Comerciales y Financieras"
-    },
-
-    "proyectos": {
-        "title": "Proyectos",
-        "title-proyecto1": "Juego del Ahorcado",
-        "info-proyecto1": "Un juego donde el usuario debe adivinar la palabra secreta con un cierto número de oportunidades. La palabra se escoge de forma aleatoria por el programa y el usuario perderá en el momento en que la horca se complete.",
-        "title-proyecto2": "Portafolio",
-        "info-proyecto2": "Mi portafolio web personal, donde se encuentran algunos de mis proyectos más destacados, mis habilidades técnicas y un poco sobre mi formación.",
-        "title-proyecto3": "Encriptador de Texto",
-        "info-proyecto3": "Un ecriptador donde el usuario puede escribir un texto y el encriptador lo codifica con llaves ya programadas. El encriptador también permite desencriptar el texto.",
-        "title-proyecto4": "Pastillas Track App",
-        "info-proyecto4": "App móvil con React Native y Expo para registrar medicamentos, marcar tomas y recibir recordatorios diarios con notificaciones locales. Incluye persistencia con AsyncStorage y estado global con Context API."
-    },
-
-    "contacto": {
-        "title": "Contacto",
-        "text": "Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.",
-        "btn-enviar": "Enviar",
-        "form-ok": "Mensaje enviado. Te responderé lo antes posible.",
-        "form-error": "No se pudo enviar. Intenta de nuevo o escríbeme por LinkedIn.",
-        "form-config": "Falta la clave de envío: abre script.js y pega tu access key de web3forms.com (ver comentario en el archivo)."
-    }
+  "a11y": {
+    "skip": "Saltar al contenido"
+  },
+  "menu": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "education": "Formación",
+    "contact": "Contacto"
+  },
+  "home": {
+    "greeting": "Hola! Soy",
+    "role": "Desarrollador Full Stack",
+    "intro": "Desarrollo aplicaciones web y móviles de punta a punta: desde la interfaz hasta la base de datos y los pagos. Trabajo con React, React Native, TypeScript, Node.js y PostgreSQL/Supabase, y busco mi primer rol Junior Full Stack / Front End para crear productos que resuelvan problemas reales.",
+    "cv_button": "Descargar CV",
+    "contact_button": "Contacto"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "text": "Soy Desarrollador Full Stack, formado en el bootcamp de Desafío Latam (2024) y con proyectos propios desde entonces. Vengo del área de la salud (Tecnología Médica), lo que me da disciplina de proceso y criterio para productos como el que construí: una app de gestión de medicamentos.<br><br>Como freelance desarrollé de principio a fin una app móvil SaaS con autenticación multitenant, modo offline-first y suscripciones con Stripe. También he hecho mantenimiento de sitios web existentes y tengo conocimientos básicos de WordPress y Python. Mi inglés es C1, así que puedo trabajar con equipos y documentación en inglés.<br><br>Me gusta aprender con proyectos reales: hoy estoy profundizando en TypeScript y Next.js."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "learning": "en formación",
+    "basic": "básico"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "featured": "Destacado",
+    "recuerda_desc": "App móvil SaaS de gestión de medicamentos, desarrollada como Full Stack freelance. Arquitectura offline-first con sincronización en Supabase, autenticación multitenant con Row Level Security y suscripciones con Stripe (Checkout, portal de cliente y webhooks). Builds Android con EAS Build.",
+    "recuerda_note": "Proyecto freelance para cliente — código privado",
+    "babies_desc": "Marketplace C2C para comprar y vender artículos de bebé de segunda mano. Frontend en React, API REST propia en Node.js + Express con autenticación JWT y rutas protegidas, y base de datos PostgreSQL.",
+    "portfolio_desc": "Este sitio: bilingüe (ES/EN), responsive, accesible y desplegado en Vercel, con SEO básico y vista previa al compartir el enlace. HTML, CSS y JavaScript sin frameworks.",
+    "gremio_desc": "Sitio frontend para una mesa de rol donde los jugadores eligen las misiones de cada sesión.",
+    "jabones_desc": "Landing page responsive para una marca de jabones artesanales, hecha con componentes React y Bootstrap y desplegada en Vercel."
+  },
+  "education": {
+    "title": "Formación",
+    "react": "Desarrollador Front-End React",
+    "node": "Backend con Node y Express",
+    "sql": "SQL (Structured Query Language)",
+    "css": "Certificado CSS",
+    "english": "Inglés avanzado C1",
+    "ai": "Desarrollo con Inteligencia Artificial (Big School)"
+  },
+  "contact": {
+    "title": "Contacto",
+    "text": "¿Tienes una vacante o un proyecto? Escríbeme y te respondo lo antes posible.",
+    "direct": "También puedes escribirme a",
+    "send": "Enviar",
+    "form-ok": "Mensaje enviado. Te responderé lo antes posible.",
+    "form-error": "No se pudo enviar. Intenta de nuevo o escríbeme a tomascorvalan14@gmail.com.",
+    "form-mailto": "Abriendo tu correo para enviar el mensaje…"
+  }
 }
